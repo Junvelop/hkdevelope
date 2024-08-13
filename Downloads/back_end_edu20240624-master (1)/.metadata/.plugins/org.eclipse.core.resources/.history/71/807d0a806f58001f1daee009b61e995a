@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html04_목록요소.html</title>
+<style type = "text/css">
+	li > ul{display: none;}
+	ul li{list-style: none;}
+	
+
+
+</style>
+
+
+<script type="text/javascript">
+
+	window.onload = function(){
+		document.querySelectorAll("b")[0].onclick = function(){
+			document.querySelectorAll("li>ul")[0].style.display = "block";
+		}
+	}
+
+</script>
+
+</head>
+<body>
+<h1>비순차적 목록 요소</h1>
+<ul>
+	<li><b>자바</b>
+		
+		<ul>
+			<li>변수의 사용</li>
+			<li>제어문</li>
+			<li>객체 지향</li>
+		</ul>
+		
+	</li>
+	
+	<li>디비
+	
+		<ul>
+				<li>환경설정</li>
+				<li>DB 모델링의 개념</li>
+				<li>DML/DDL/DCL</li>
+				<li>테이블/뷰/프로시져L</li>
+		</ul>
+	
+	</li>
+	<li>html</li>
+	<li>css</li>
+</ul>
+
+
+
+<hr/>
+
+<h1>순차적 목룍 요소</h1>
+
+<ol>
+	<li>자바
+		
+		<ol>
+			<li>변수의 사용</li>
+			<li>제어문</li>
+			<li>객체 지향</li>
+		</ol>
+		
+	</li>
+	
+	<li>디비
+	
+		<ol>
+				<li>환경설정</li>
+				<li>DB 모델링의 개념</li>
+				<li>DML/DDL/DCL</li>
+				<li>테이블/뷰/프로시져L</li>
+		</ol>
+	
+	</li>
+	<li>html</li>
+	<li>css</li>
+</ol>
+
+
+
+<d1>
+	<dt>java</dt>
+	<dt>network</dt>
+</d1>
+
+
+
+</body>
+</html>

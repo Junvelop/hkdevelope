@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1580688523.index
+388647160.index
+3360102590.index
+477637621.index
+3530542830.index
+3367289412.index
+3840991384.index
+3840991384.index
+643159102.index

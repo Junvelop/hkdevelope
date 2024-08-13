@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>html06_폼요소</title>
+</head>
+<body>
+<h1>폼요소</h1>
+<h2>post 전송방시</h2>
+<form action = "test.html" method = "post"> </form>
+
+	<fieldset>
+	<legend>기본정보</legend>
+	<lable>아이디 : </lable>
+	<input type = "text" name = "id" value = "입력값"/> <br/>
+	
+	
+	<lable>이름 : </lable>
+	<input type = "text" name = "name" value = "입력값"/>
+	
+	</fieldset>
+</body>
+</html>

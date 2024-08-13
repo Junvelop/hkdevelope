@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>html04_목록요소.html</title>
+</head>
+<body>
+<h1>비순차적 목록 요소</h1>
+<ul>
+	<li>자바
+		
+		<ul>
+			<li>변수의 사용</li>
+			<li>제어문</li>
+			<li>객체 지향</li>
+		</ul>
+		
+	</li>
+	
+	<li>디비
+	
+		<ul>
+				<li>환경설정</li>
+				<li>DB 모델링의 개념</li>
+				<li>DML/DDL/DCL</li>
+				<li>테이블/뷰/프로시져L</li>
+		</ul>
+	
+	</li>
+	<li>html</li>
+	<li>css</li>
+</ul>
+
+
+
+
+<ol>
+	<li>자바
+		
+		<ol>
+			<li>변수의 사용</li>
+			<li>제어문</li>
+			<li>객체 지향</li>
+		</ul>
+		
+	</li>
+	
+	<li>디비
+	
+		<ol>
+				<li>환경설정</li>
+				<li>DB 모델링의 개념</li>
+				<li>DML/DDL/DCL</li>
+				<li>테이블/뷰/프로시져L</li>
+		</ul>
+	
+	</li>
+	<li>html</li>
+	<li>css</li>
+</ul>
+
+
+
+
+</body>
+</html>

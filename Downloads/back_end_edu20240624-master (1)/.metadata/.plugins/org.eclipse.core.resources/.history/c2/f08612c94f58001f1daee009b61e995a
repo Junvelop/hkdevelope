@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록 요소 예시</title>
+</head>
+<body>
+    <h1>이것은 제목입니다 (h1 - 블록 요소)</h1>
+    <p>이것은 단락입니다 (p - 블록 요소)</p>
+    <div>
+        <p>이 div 안에 있는 단락입니다. (div, p - 모두 블록 요소)</p>
+        <p>이것은 단락입니다. <span>이 부분은 span으로 강조되었으며, 인라인 요소입니다.</span></p>
+    <p>이것은 또 다른 단락입니다. <a href="#">여기는 링크입니다 (a - 인라인 요소)</a></p>
+    <p>텍스트를 <strong>굵게</strong> 또는 <em>기울여서</em> 표시할 수 있습니다. (strong, em - 인라인 요소)</p>
+    </div>
+</body>
+</html>

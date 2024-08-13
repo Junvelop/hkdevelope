@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>html06_폼요소</title>
+<script type = "text/javascript">
+  // js에 location 객체에서 전송된 값을 확인할 수 있따. get 방식일 때 받을 수 있음 도구더보기 콘솔에서 post 방식 x
+	onload= function(){
+	console.log(location.search);
+	}
+
+</script>
+</head>
+<body>
+<h1>폼요소</h1>
+<h2>post 전송방식</h2>
+<form action = "html06_폼요소.html" method = "get"> 
+
+	<fieldset>
+	<legend>기본정보</legend>
+	<lable>아이디 : </lable>
+	<input type = "text" name = "id" value = "입력값"/> <br/>
+	
+	
+	<lable>이름 : </lable>
+	<input type = "text" name = "name" value = "입력값"/>
+	
+	</fieldset>
+	
+	
+	<fieldset>
+	<legend>기타정보</legend>
+	<lable for = : "addr"> 주소 : </lable>
+	<input type = "text" name = "addr" id = "addr"/> <br/>
+	
+	
+	<lable for =  "email">이름 : </lable>
+	<input type = "text" name = "email" id = "email"/>
+	
+	</fieldset>
+	
+	<input type = "submit" vaule = "가입"/>
+
+</form>
+<h2>GET 전송방식</h2>
+<p>get방식은 한글이 깨질 수 있다.</p>
+<a href = "html06_폼요소.html?id=hk&name=hankyung">가입</a>
+<!-- <a href = "https://www.google.com/search?q=javascript&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIMCAEQIxgnGIAEGIoFMgwIAhAjGCcYgAQYigUyEwgDEC4YgwEYxwEYsQMY0QMYgAQyDQgEEAAYgwEYsQMYgAQyEwgFEC4YgwEYxwEYsQMY0QMYgAQyDQgGEAAYgwEYsQMYgAQyDQgHEAAYgwEYsQMYgAQyBwgIEAAYgAQyDQgJEAAYgwEYsQMYgATSAQgxNjIyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8"> 전송</a>  -->
+
+<h2>폼 구성요소</h2>
+<form action="html06_폼요소.html" method = "get" enctype = "multipart/form-data"> <!-- 파일 업로드 할 때는 멀티포트 어쩌구 이거 써야됨 아니면 텍스트만 전송이 됨 -->
+	<h3>회원가입</h3>
+	<fieldset>
+	<legend>기본정보</legend>
+	<p>
+		<label for = "labelID"> 아이디 : </label>
+		<input type = "text" id = "labelID" name = "id"
+											placeholder="아이디는 영문으로 입력하세요"
+											required="required"
+											pattern = "[a-z]{3}"
+											autofocus ="autofocus"
+											autocomplete = "off"/>
+	</p>
+	
+	<p>
+		<label for = "labelPW"> 비밀번호 : </label>
+		<input type = "password" id = "labelPW" name = "pw"/>
+	</p>
+	
+	<p>
+		<label for = "labelBirth"> 생년월일 </label>
+		<input type = "date" id = "labelBirth" name = "birth"/>
+	</p>
+	
+	</fieldset>
+
+
+
+	<fieldset>
+	<legend>메일수신여부</legend>
+	<p>
+		<label>수신여부</label>
+		<input type = "radio" id = "y" name = "reciecve" value = "y"/>
+		<lable for = "y">예</lable>
+		
+		<input type = "radio" id = "n" name = "reciecve" value = "n"/>
+		<lable for = "n">아니오</lable> <!-- name이 똑같아야 해 안 그러면 둘 다 체크만 되고 안 풀리는 상황이 발생해 왜냐면 라디오 타입이라서 송신자가 일치해야 하기 때문이야 -->
+		<br/>
+		<small>
+			라디오 버튼은 하나만 체크되고 다시 취소되지 않는다. 
+			데이터 전송시 체크된 태그만 값이 전송된다.
+		
+		</small>
+		
+		
+	</p>
+	
+
+	
+	</fieldset>
+	
+	
+		<fieldset>
+	<legend>관심분야</legend>
+	<p>
+	
+		<input type = "checkbox" id = "h" name = "chk" value = "html"/>
+		<lable for = "h">HTML</lable>
+		
+		
+		<input type = "checkbox" id = "c" name = "chk" value = "css"/>
+		<lable for = "c">CSS</lable>
+		
+		<br/>
+		<small>
+		
+		체크박스는 여러개를 동시에 체크할 수 있다. 취소도 가능하다. 데이터 전송시 체크된 태그만 값이 전송된다. 
+		
+		</small>
+
+	</p>
+	
+	</fieldset>
+	
+	
+		<fieldset>
+		
+		
+	<legend>파일업로드</legend>
+	<p>
+		<label for = "labelID"> 파일유형 : </label>
+		<select name = "sel">
+		
+		<option value = "kk"> 공지사항 </option>
+		<option value = "bb"> 자유게시판 </option>
+		<option value = "cc" selected = "selected"> 회원전용 </option>
+		
+		
+		
+		</select>
+	
+	<br/>
+	<small>
+		데이터 전송시 선택된 태그만 값이 전송된다.
+	</small>
+		
+	</p>
+	
+	<p>
+		<label>파일업로드 </label>
+		<input type = "file" name = "fileupload" />
+	</p>
+	
+
+	
+	</fieldset>
+	<input type = "submit" value = "가입"/>
+
+</form>
+</body>
+</html>

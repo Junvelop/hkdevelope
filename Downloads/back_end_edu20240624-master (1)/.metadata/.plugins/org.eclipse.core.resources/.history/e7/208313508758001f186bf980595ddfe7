@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html03_이미지요소.html</title>
+</head>
+<body>
+<h1>이미지 요소</h1>
+<p>이미지요소는 이미지를 웹페이지에 표현할 때 사용한다.</p>
+<p>사이즈 조절을 할 때 해상도를 고려해야 한다.</p>
+<p>
+<img alt="개사진" src="https://image.utoimage.com/preview/cp872722/2022/12/202212008462_500.jpg"/>
+<a target = "_blank" href = "https://blog.kakaocdn.net/dn/GSWaD/btr0gB0teLR/1W4YO2IXCHoDVcpca9HHGK/img.jpg">
+<img alt="강아지 사진입니다." src="img/gae.jpg"
+	width = "100px" height = "100px"/> </a>
+	
+</p>
+
+
+<hr/>
+<h1>이미지 맵 사용하기</h1>
+<img usemap = "#menu" src = 'img/menu.jpg' alt = "메뉴 사진임" />
+<map name = "menu">
+
+	<area alt = "삼겹살이예요."
+			href = "https://namu.wiki/w/%EC%82%BC%EA%B2%B9%EC%82%B4"
+			shape = "rect"
+			coords = "60,124,133,234"
+			target = "_blank" 
+			
+			
+			
+			
+			/>
+			
+			
+			
+	<area alt = "대패삼겹살이예요."
+			href = "https://namu.wiki/w/%EC%82%BC%EA%B2%B9%EC%82%B4%20%EA%B5%AC%EC%9D%B4?from=%EB%8C%80%ED%8C%A8%EC%82%BC%EA%B2%B9%EC%82%B4#s-3.1"
+			shape = "rect"
+			coords = "138,117,212,206"
+			target = "_blank" 
+			
+			
+			
+			
+			/>
+
+</map>
+
+<hr/>
+<a target = "tt" href = "html01_구성요소.html"> 이동</a>
+<iframe name ="tt" src = "html2_블럭요소와인라인요소.html"
+	style = "width:400px; height : 400px;"> </iframe>
+
+</body>
+</html>

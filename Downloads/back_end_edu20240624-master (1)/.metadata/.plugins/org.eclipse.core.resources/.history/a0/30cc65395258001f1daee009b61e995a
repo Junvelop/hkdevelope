@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록 요소 예시</title>
+</head>
+<body>
+
+<div>
+    <h1>이것은 제목입니다 (h1 - 블록 요소)</h1>
+    <p>이것은 단락입니다 (p - 블록 요소)</p>
+    <p>
+     인라인 요소와 텍스트요소를 포함할 수 있는 <strong>블록요소</strong>이지만,<br/>
+     또 다른 <em>블록요소</em>를 포함할 수는 없다.
+	</p>
+	
+	<address>
+        Example Company<br>
+        1234 Street Name, Suite 100<br>
+        City, State 56789<br>
+        <a href="mailto:info@example.com">info@example.com</a><br>
+        <a href="tel:+1234567890">+1 (234) 567-890</a>
+    </address>
+    
+    <p> div로 한번 감쌌어요 </p>
+	
+</div>
+    
+    <div>
+        <p>이 div 안에 있는 단락입니다. (div, p - 모두 블록 요소)</p>
+    </div>
+    
+    
+    
+</body>
+</html>

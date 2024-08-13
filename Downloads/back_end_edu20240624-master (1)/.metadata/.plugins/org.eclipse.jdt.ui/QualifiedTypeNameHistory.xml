@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="hk.edu20240716.day13.CardCase"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="hk.edu20240729.day14.D3_ThreadSync"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="hk.edu20240729.day14.D4_CakePlate"/>
+    <fullyQualifiedTypeName name="hk.edu20240729.day14.D4_CakeEater"/>
+    <fullyQualifiedTypeName name="hk.edu20240729.day14.D4_CakeMaker"/>
+    <fullyQualifiedTypeName name="java.net.Socket"/>
+    <fullyQualifiedTypeName name="java.net.ServerSocket"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="hk.edu20240730.day15.D1_MultiServer"/>
+</qualifiedTypeNameHistroy>

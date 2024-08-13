@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>html05_표만들기</title>
+<style type = "text/css">
+		.tb{width:600px;}
+</style>
+
+
+</head>
+<body>
+<h1>1.기본 표 만들기</h1>
+	<table border = "1" class = "tb">
+		<tr>    <th>번호</th>   <th>제목</th>    <th>작성일</th>    </tr>
+		<tr>    <td>1</td>   <td>2</td>    <td>3</td>    </tr>
+		<tr>    <td>1</td>   <td>2</td>    <td>3</td>    </tr>
+		
+		
+	
+	</table>
+
+</body>
+</html>
