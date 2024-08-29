@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type ="text/css">
+	#red, #yellow, #blue, #black{
+		width : 150px;
+		height :150px;
+		border : 1px solid gray;
+		color : gray;
+		text-align : center;
+		line-height : 150px;
+		position : absolute;
+	
+	
+	}
+	
+	#yellow{
+		left : 160px;
+		
+	}
+	
+	#blue{
+		top:160px;
+	}
+	
+	#black{
+			left:160px;
+			top:160px ;
+	}
+	
+	#base{
+		position:absolute;
+		top:320px;
+	}
+</style>
+<script type = "text/javascript">
+	function allSel(chkAllObj){
+		console.log(chkAllObj.checked); // 전체선택 체크박스의 체크여부 확인 가능 
+		
+		var chks = document.getElementsByName("chk"); //[ehk,ehk,ehk,ekh]
+		
+		
+		chks.forEach((chk) =>{
+			chk.checked = chkAllObj.checked;
+		}
+		
+		);
+	}
+	
+	function isCheckCount(chks){ //chks : 체크박스 객체 리스트
+		
+		var count = 0; //체크된 체크박스의 개수
+		
+		for (var i = 0; i < chks.length; i++) {
+			if(chks[i].checked){ //체크여부 판단
+				count++;
+			}
+			
+		}
+		return count;
+	}
+	
+	function sel(){
+		//체크박스 여러개 탐색
+		var chks = document.getElementsByName("chk");
+		
+//		var count = 0; //체크된 체크박스의 개수
+//		
+//		for (var i = 0; i < chks.length; i++) {
+//			if(chks[i].checked){ //체크여부 판단
+//				count++;
+//			}
+			
+//		
+		var count = isCheckCount(chks);
+		
+		if(count ==0){
+			alert("최소 하나 이상 체크하세요");
+		}else{
+			if(chk.checked){
+				document.getElementById(chk.value).style.backgroundColor=chk.value;
+			}else{
+				document.getElementById(chk.value).style.backgroundColor="white";
+			}
+		}
+		chks.forEach((chk) =>
+		{
+			if(chk.checked){
+				document.getElementById(chk.value).style.backgroundColor=chk.value;
+			}else{
+				document.getElementById(chk.value).style.backgroundColor="white";
+			}
+		})
+}
+	
+	function clearDiv(){
+		var divs = document.getElementsByName("chk");  //dom 탐색메서드를 통해서 반환된 배열 객체 -> 유사배열 겍체로 실제 배열하고는 다름 -> array.forEach()를 쓸 수 없음
+	//	divs.forEach((div)=>{
+	//		div.style.backgroundColor = "white";
+	//	});
+	
+	for (var i = 0; i < divs.length; i++){
+		divs[i].style.backgroundColor = "white";
+		
+	}
+	//form 요소 구성 요소 중에 초기화 기능
+	// input type = "reset" ---> reset();
+	// document 객체의 속성 : body.forms ....
+	document.forms[0].reset();// form 요소 내부의 요소들을 초기화 한다
+	}
+	
+</script>
+</head>
+<body>
+<div id = "red">red</div>
+<div id = "yellow">yellow</div>
+<div id = "blue">blue</div>
+<div id = "black">black</div>
+<div id = "base">
+	<form>
+		<input type = "checkbox" name = "all" onclick = "allSel(this)"/>전체선택<br/> <!-- this는 포함하고 있는 인풋 객체를 말함 -->
+		<input type = "checkbox" name = "chk" value = "red" />레드선택<br/>
+		<input type = "checkbox" name = "chk" value = "yellow" />옐로우선택<br/>
+		<input type = "checkbox" name = "chk" value = "blue" />블루선택<br/>
+		<input type = "checkbox" name = "chk" value = "black" />블랙선택<br/>
+		<button type = "button" onclick = "sel()">선택</button>
+		<button type = "button" onclick = "clearDiv()">초기화</button> </form>
+</div>
+</body>
+</html>

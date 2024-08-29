@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type = "text/javascript">
+		/*
+			window객체 구현되어 있는 메서드
+			- setInterval()    /   clearInterval()
+			:일정시간 간격으로 반복실행 / 반복기능을 종료
+			
+			- setTimeout()      /   clearTimeout()
+			:일정시간이 지난 후 기능 실행/ 기능을 종료
+		*/
+		
+		window.onload=()=>{
+		var  timeViewInterVal =	setInterval(timeView,1000); //timeview()해버리면 기능전달이 아니라 실행을 해버리기 때문에 안ㄷ ㅐㅁ 
+		//	timeView();
+			
+		// 멈춤 버튼을 클릭했을 때 setInerval을 정지시키자
+		document.getElementsByTagName("button")[0].onclick=()=>{
+			window.clearInterval(timeViewInterVal);
+		}
+		}
+		
+		//현재 시간을 출력하는 기능 
+		function timeView(){
+				var date =new Date();
+				document.getElementById("se").textContent = date.toLocaleTimeString();
+			}
+		//알람버ㅡㄴ을 클릭하면 설정폼이 보이게 하는 기능
+		function view(){
+			var doc = document.getElementById("setAlarm");
+			
+			if(doc.style.display =="none"){
+			doc.style.display="block"; } // 보이게
+			else{
+				doc.style.display="none"; //감추고 
+			}
+		}
+		
+		function setAlarm(){
+			//설정시간구하기
+			var inputAlarmObj = document.getElementById("alarm");
+			var inputAlarm = inputAlarmObj.value;	
+			var aTime = inputAlarm*1000; //1초 == 1000ms 환산
+			document.getElementById("on").style.color = "red"; //사용자가 알람이 설정됐다는걸 알게 하기위해 설정 버튼의 폰트색을 red로 변경
+			
+			setTimeout(() =>{
+				
+				//알람이 울리는 코드
+				var musicObj = '<embed src = "Kalimba.mp3" hidden "hidden"/>';
+				document.getElementById("song").innerHTML = musicObj;
+				document.getElementById("off").disabled="";  //비활성화 - > 활성화 
+		},aTime);}
+		
+		//알람끄기
+		function finishAlarm(){
+			document.getElementById("song").innerHTML = "";
+			document.getElementById("off").disabled = "";
+			document.getElementById("song").innerHTML = "";
+			document.getElementById("song").innerHTML = "";
+			document.getElementById("setAlarm").style.display ="none";
+			
+		}
+		
+</script>
+<style>
+	#clock{
+		height:300px;
+		width: 300px;
+		border: 1px solid red;
+		background-image : url("https://cdn-icons-png.flaticon.com/512/6239/6239609.png");
+		background-size:300px;
+		
+	}
+	#btn{
+		width:50px;
+		position:relative;
+		top:20px;
+		left:130px;
+		cursor:pointer;
+		background-color:orange;
+		text-align:center;
+		border-radius: 5px;
+	}
+	
+	#se{
+		width:200px;
+		position:relative;
+		top:100px;
+		left:80px;
+		font-size:20px;
+		font-weight:bold;
+		background-color:white;
+		text-align:center;
+	}
+	
+	#setAlarm{
+		position: relative;
+		top:200px;
+		left:20px;
+		display :none;
+		
+	}
+	#alarm{
+		width:50px;
+	}
+
+</style>
+</head>
+<body>
+<button>시간 멈춤(clearInterval 확인용 구현)</button>
+<div id = "clock">
+	<div id = "btn" onclick = "view()">알람</div>
+	<div id = "se">time</div>
+	<div id = "setAlarm">
+		<input type = "number" id = "alarm" /><b>초 후</b>
+		<button id = "on" onclick = "setAlarm()">설정</button>
+		<button id = "off" onclick = "finishAlarm()" disabled = "disabled">끄기</button>
+	</div>
+	
+</div>
+<div id = "song"></div>
+</body>
+</html>

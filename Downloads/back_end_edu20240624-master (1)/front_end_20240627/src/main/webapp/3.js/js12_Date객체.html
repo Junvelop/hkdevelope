@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type ="text/javascript">
+	function testDate01(){
+		var date = new Date();
+		var spanDate = document.getElementById("today");
+		spanDate.textContent=date.toLocaleString();
+	}
+	
+	function testDate02(){
+		var date = new Date();
+		var year = date.getFullYear(); //오늘 날짜에서 년도 정보를 가져옴
+		var month = date.getMonth()+1; //0월 ~ 11월 구성
+		var day = date.getDate(); //일 가져옴 
+		var week = date.getDay();  //요일은 0~6까지의 정수형태 표현 : 일월화~ 순서로
+		var dayOfWeek = ["일","월","화","수","목","금","토"];
+		
+		var spanDate = document.getElementById("today");
+		spanDate.textContent = `${year}/${month}/${day}/${dayOfWeek[week]}요일`;
+		
+	}
+	
+	function testDate03(){
+		var dt = new Date(2024,10-1,8); // 이래야 10월로 찍힘 -1을 해줘야 
+		//var date = new Date("2024-09-04"); 이렇게 쓸 수도 있음
+		document.getElementById("specific").textContent = dt.toLocaleDateString();
+	 
+	}
+	
+	//페이지가 로딩되면 기능이 실행된다.
+	onload = function(){
+		var date = new Date();
+		document.querySelector("#dates").value = date.toLocaleString();
+		document.querySelector("#dates2").value = date.toLocaleString();
+		
+	}
+	
+	function testDate04(){
+		//현재날짜 +5 --> 날짜 계싼후 결과 얻기
+		var date = new Date();
+		var inputDate = document.getElementById("inputDate").value;
+		console.log(date.getDate()+parseInt(inputDate)); // 27 + "5" = 275 이렇게 뜸 원래 5가 문자임
+		date.setDate(date.getDate()+parseInt(inputDate)); //경과일 계산
+		console.log(date.toLocaleString());
+		
+		document.getElementById("resultDate").value = date.toLocaleString();
+	}
+	
+	function testDate05(){
+		var nd = new Date();
+		var dt = document.getElementById("d_day").value; //수료날짜
+		console.log(typeof dt);
+		var ad = new Date(dt); //수료일로 설정된 date 객체 생성
+		console.log(nd.getTime() + ":" + ad.getTime()); //gettime() 반환값: 단위가 ms --> 1s --> 1000ms 
+		var period = Math.ceil((ad.getTime()-nd.getTime())/(1000*1*60*60*24));
+		document.getElementById("period").value = period;
+	}
+
+</script>
+</head>
+<body>
+<h1>오늘 날짜 출력하기</h1>
+<span id = "today"></span><br/>
+<button onclick = "testDate01()">오늘날짜</button>
+<button onclick = "testDate02()">오늘날짜(표현방식 설정)</button>
+
+<h1>특정 날짜 출력하기</h1>
+<span id = "specific"></span><br/>
+<button onclick = "testDate03()">특정날짜</button>
+
+<h1>경과날짜구하기</h1>
+<label>현재 날짜 : </label><input type = "text" id = "dates" readonly="readonly"/><br/>
+<label>경과일 : </label><input type = "number" id = "inputDate" min = "1"/>일<br/>
+<label>경과후 날짜 : </label><input type = "text" id = "resultDate" readonly="readonly"/><br/>
+<button onclick = "testDate04()">경과날짜조회</button>
+
+<h1>d-day 기능 </h1>
+<label>현재 날짜 : </label><input type = "text" id = "dates2" readonly="readonly"/><br/>
+<label>수료일 : </label><input type = "date" id = "d_day"/>일<br/>
+<label>남은일수 : </label><input type = "text" id = "period" readonly="readonly"/><br/>
+<button onclick = "testDate05()">수료날짜조회</button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+
+	.c{
+		font-size : 20px;
+		font-weight :  bold;
+		font-style:italic;
+		font-variant : small-caps;
+		line-height: 50px;
+		font-family: "맑은고딕"
+	
+	}
+	
+	h1{
+		background-color: yellow;
+		height:100px;
+		text-align: center; 
+	/*	vertical-aling:middle;  애는 사용조건이 안 맞아서 안 돼 사용 조건 알아보기*/ 
+		line-height: 100px; /*행이 하나일 때만 위 아래 정렬 가능 */
+	
+	}
+	
+	/* 1. font: [font-weight / font - style / font-variant] 셋중에 하나가 오던가 셋이 다오던가 해야됨 첫번쨰 순서
+		2.font: [font-size/line-height]
+		3.font: [font-family]
+		이 순서로 (1,2,3)작성 해야 함 */
+		
+	.d{
+		font:bold italic samll-caps 20px/50px '맑은 고딕';	 /*20px/50px '맑은 고딕' 이 부분은 무조건 작성해야 됨 !!! */
+	}
+
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h1>안녕안녕안녕<strong id = "a">안녕!!!!!!!!</strong></h1>
+
+<p class = "c">13일 정치권에 따르면, 민주당 중앙위원회는 <span>전날</span> 당이 원하는 나라·사회·국가에 '기본사회'를 명시하는 내용의 당 강령 개정안을 통과시켰다. <!-- 클래스 태그는 중복이 가능 ! id는 x -->
+구체적으로 민주당은 '사회경제적 양극화·불평등 극복과 모든 사람의 기본적인 삶 보장'을 위해 <b>기본사회</b>를 <i>추구</i>하겠다는 방침이다. </p>
+
+<p class="d">기본사회는 이 <span title="박명수">전 대표</span>가 성남시장 시절부터 강조해온 기본소득을 집대성한 개념이다. 이 전 대표는 국가가 최소 생활비를 지급하는
+기본소득을 주거, 금융, 의료 등의 영역으로 <span>확장</span>하겠다는 계획이다.
+ 당대표 연임에 도전한 이 전 대표는 최근<a href="https://blog.naver.com/dsecool/223337787547">지역 순회 경선을 치르는 동안에도 기본사회를 강조하고 있다.</a></p>
+
+
+</body>
+</html>

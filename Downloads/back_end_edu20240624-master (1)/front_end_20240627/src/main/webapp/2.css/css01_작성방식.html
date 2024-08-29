@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>1.css01_작성방식</title>
+<link rel = "stylesheet" href = "css/test.css">
+<!--  경로: ./url, 앞에 아무것도 작성을 안 했을 경우에는 현재위치부터 찾는다.
+			/만 붙으면 루트부터 찾는다. 최상위 경로부터 찾아간다. 현재는 2.css부터 찾아가니까 css부터 적어주면 되는 거임  -->
+<style type="text/css">
+
+body{
+margin: 0px /* 외부여백 */
+}
+
+p{color : blue};
+
+</style>
+</head>
+<body>
+<p style = "color:white; background-color:black;"> 인라인 태그 </p>  	 <!-- 컨트롤 스페이스 누르면 태그가 가지고 있는 속성이 나옴 -->
+<strong>요소 내부에 작성한다.</strong>
+<p>내부스타일방식</p>
+<strong>head 태그 내부에 style 태그로 작성하는 방식</strong>
+
+<p>외부스타일방식</p>
+<strong>외부css파일을 만들어서 작성하는 방법</strong>
+</body>
+</html>
