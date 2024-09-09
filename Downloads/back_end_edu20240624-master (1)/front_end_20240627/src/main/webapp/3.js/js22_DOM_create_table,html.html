@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type ="text/javascript">
+
+  //1. 10개까지만 입력되도록 하기 (10개까지만 추가가 가능합니다.)
+  var tbodyCount = document.getElementById("addtr").children.length; //childElementcount를 활용할 수도 있음
+  cosole.log(tbodyCount);
+  
+  if(count>0){
+	  alert(`모두입력하세요(${msg})`);
+  }else{
+	  if(tbodycount<10){
+			var tr = document.createElement("tr");
+			for (var i = 0; i < inputs.length; i++){
+				var td = document.createElement("td"); //<td></td>
+				td.textContent = inputs[i].value; // <td>value</td>
+				tr.appendChild(td); // <tr><td> value </td></tr>
+			}
+  }else{
+	  alert("10개까지만 입력해");
+  }
+  
+ 
+  		document.getElementById("addtr").appendChild(tr); //완성된 tr을 tbody에 추가한다.
+		
+	function tableVal(){ //<tr><td></td><td></td>..</tr>
+	
+		var inputs = document.querySelectorAll("form[name=formTest] input[name]");
+		console.log(inputs[0].value); //인풋요소에 입력된 내용이 없다면 문자열 타입 ("")으로 출력되는것을 콘솔에서 볼 수 있음.
+		
+		
+		var count = 0;
+		var msg = ""; //입력이 안된 목록을 문자열로 저장
+		inputs.forEach((input)=>{ //여기서 인풋은 유사객체가 아니라 querySelectorAll로 만들어져서 배열 객체로 취급되어 array 객체로 인식이 되어 foreach를 쓸 수 있음. 엘리먼트로 만들어졌으면 유사객체라 불가능함
+			if(input.value==null||input.value==""||input.value==undefined){
+				count++ //입력안된 input요소가 있으면 count 올림
+		//		msg+=`${imput.name}`;
+				msg += input.parentNode.previousElementSibiling.textContent + " ";
+			}
+		})
+		
+		}
+		
+  		console.log(msg);
+		
+	}
+</script>
+</head>
+<body>
+<form name = "formTest">
+	<table border = "1">
+	<caption>회원정보입력</caption>
+	<col width = "100px"><col width = "300px">
+	<tr>
+		<th>아이디</th>
+		<td><input type = "text" name = "id"/></td>
+	</tr>
+	
+	
+		<tr>
+		<th>비번</th>
+		<td><input type = "password" name = "pw"/></td>
+	</tr>
+	
+		<tr>
+		<th>주소</th>
+		<td><input type = "text" name = "addr"/></td>
+	</tr>
+	
+		<tr>
+		<th>전번</th>
+		<td><input type = "tel" name = "phone"/></td>
+	</tr>
+	
+		<tr>
+		
+		<td colspan="2" onclick = "tableVal()"><input type = "button" value = "추가"/></td>
+	</tr>
+	
+	
+	
+	
+	</table>
+
+
+</form>
+
+<div id = "addTable">
+	<table border = "1" id = "ctb">
+	<caption>회원정보목록</caption>
+	<col width = "100px">
+	<col width = "100px">
+	<col width = "300px">
+	<col width = "200px">
+	<thead>
+		<tr>
+			<th>아이디</th>
+			<th>비번</th>
+			<th>주소</th>
+			<th>전번</th>
+		</tr>
+	</thead>
+	<tbody id = "addtr">
+	
+	</tbody>
+	</table>
+	
+</div>
+</body>
+</html>

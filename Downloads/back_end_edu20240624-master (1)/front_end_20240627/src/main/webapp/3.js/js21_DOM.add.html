@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type = "text/javascript">
+/*
+ 	innerHTML : "<b> 텍스트형식 </b>"의 html요소를 태그 내부에 표현
+ 	textContent : "텍스트형식" 텍스트 요소를 태그 내부에 표현 (택스트로만 표현 가능)
+ 	appendChild (Node 객체) : 자식요소에 마지막에 추가 (객체를 대상)
+ 	insertBefore(Node new, Node old) : 자식요소 중에 타겟을 지정해서 그 앞에 추가(객체 대상)
+ 	
+ 	주의 사항 
+ 	div appendChild("<p>text</p>")(X)
+ 	
+ 	var p = document.getElementById("id"); // 탐색해서 생성된 객체
+ 	div.appendChild(p); (O)
+ 	
+ */
+ 
+ 	function addElement(){
+ 		var fieldset = document.getElementById("addEle");
+ 		var p = document.createElement("p"); //p태그 새로 생성
+ 		p.textContent = "자식 태그들 중에 마지막에 추가된다"
+ 		fieldset.appendChild(p);
+ 		
+ 		//텍스트 객채로 생성하기 
+ 		var txt = document.createTextNode((count++)+ "자식태그들 중에 마지막에 추가된다.");
+ 		p.textContent = txt; // 객체 형식으로 p태그에 저장된다 -> 텍스트로 표현 안됨
+ 	// 	Text객체로 추가할 경우
+ 		p.appendChild(txt);
+ 	}
+ 	
+ 	function addBeforeElement(){
+ 		var fieldset = document.getElementById("addEle"); //부모태그 : 타겟 지정
+ 		
+ 		var newP = document.createElement("p");
+ 		newP.textContent = (count++)+"엘리먼트의 앞에 추가한다."; //<p>text<p>
+ 		
+ 		var oldDiv = document.querySelector("#addEle > div");
+ 		
+ 		//oldDiv 요소 앞에 newP요소를 추가한다.
+ 		fieldset.insertBefore(newP,oldDiv);
+ 	}
+ 	function moveEle(){
+ 		var moveDiv = document.getElementById("addEle").lastElementChild;
+ 		document.getElementById("addEle2").appendChild(moveDiv);
+ 	}
+
+</script>
+</head>
+<body>
+<h1>태그추가하기</h1>
+<button onclick = "addElement()"> append()실행 </button>
+<button onclick = "addBeforeElement()">insertBefore()실행</button>
+<button onclick = "moveEle()">요소이동</button>
+<fieldset id = "addEle">
+	<legend>부모태그</legend>
+	<div>div태그</div>
+</fieldset>
+<fieldset id = "addEle2">
+	<legend>이동할 요소박스</legend>
+</fieldset>
+</body>
+</html>

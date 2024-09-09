@@ -1,0 +1,10 @@
+SCRIPT_AREA_BORDER=\#fbd153 | null | false | false | false | false
+eclipse.preferences.version=1
+newFileTemplateName=New JSP File (html 5)
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="jsp_new" deleted\="false" description\="" enabled\="true" name\="user_template">&lt;%@ page language\="java" contentType\="text/html; charset\=EUC-KR"&\#13;\r\n    pageEncoding\="EUC-KR"%&gt;&\#13;\r\n&lt;%request.setCharacterEncoding("utf-8"); %&gt;&\#13;\r\n&lt;%response.setContentType("text/html;charset\=UTF-8"); %&gt;&\#13;\r\n&lt;\!DOCTYPE html&gt;&\#13;\r\n&lt;html&gt;&\#13;\r\n&lt;head&gt;&\#13;\r\n&lt;meta charset\="EUC-KR"&gt;&\#13;\r\n&lt;title&gt;Insert title here&lt;/title&gt;&\#13;\r\n&lt;/head&gt;&\#13;\r\n&lt;body&gt;&\#13;\r\n&lt;a href \= "boardList.jsp"&gt;\uAC8C\uC2DC\uD310 \uBCF4\uAE30&lt;/a&gt;&\#13;\r\n&lt;/body&gt;&\#13;\r\n&lt;/html&gt;</template></templates>
+overriddenByCSS=,SCRIPT_AREA_BORDER,tagAttributeEquals,tagAttributeName,tagAttributeValue,tagName,tagBorder,
+tagAttributeEquals=\#52ca11 | null | false | false | false | false
+tagAttributeName=\#a7ec21 | null | false | false | false | false
+tagAttributeValue=\#17c694 | null | false | true | false | false
+tagBorder=\#808080 | null | false | false | false | false
+tagName=\#03a8d8 | null | true | false | false | false

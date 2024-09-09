@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type = "text/javascript">
+// 엘리먼트 객체 생성하기 : document.createElement("div") -> element 객체 반환
+// 	setAttribute() : div.setAttribute("id","hk"); // 속성 객체 재사용 x 아이디 속성을 hk로 정함
+//	setAttributeNode(): div.setAttributeNode(Attr객체); //객체를 추가할 떄
+// Attribute 객체 생성하기 : document.createAttribute("속성이름"); // Attribute 객체 반환
+// - nodeValue : 속성값을 정의 : attr.nodeValue= "hk"
+
+
+//tetx 객체 생성하기
+
+function eleCreate(){
+	//innerHTML 활용 
+	document.getElementById("main").innerHTML
+	+= "<div style = 'color:red;'>"+"엘리먼트"+"</div>";
+	
+	var div = document.createElement("div"); //1. <div></div>생성
+	var styleAttr = document.createAttribute("style"); //2. style= ""객체생성
+	var txt= document.createTextNode("엘리먼트"); //3. "엘리먼트" 객체 생성
+	
+	//속성적용하기
+	styleAttr.nodeValue = "color:red;" //styleAttr -> style = "color:red;"
+	div.setAttribute("name","value"); // 현재코드에서는 x
+	div.setAttribute("color","red"); //속성객체를 사용하지 않는다면 일케 쓰면대
+	div.serAttributeNode(styleAttr); // <div style = "color:red;"><div>
+//	div.textContent ="엘리먼트"; // 리터럴 값 넣을 떄 
+	div.appendChild(txt); //appendChild(Node객체) <div style = "color:red;">엘리먼트<div>
+	
+	//BODY에 엘리먼트 객체를 추가 
+	document.getElementById("main").appendChild(div);
+	
+}
+
+</script>
+</head>
+<body>
+	<h1>요소 생성</h1>
+	<button onclick = "eleCreate()">엘리먼트 생성하기</button>
+	<div id = "main"></div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+	//insertboardform.jsp에서 전송된 파라미터 받는다.
+	String id = request.getParameter("id");
+	String title = request.getParameter("title");
+	String content = request.getParameter("content");
+%> 
+</body>
+</html>

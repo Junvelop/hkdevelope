@@ -1,0 +1,41 @@
+<%@page import="com.hk.dtos.HKDto"%>
+<%@page import="com.hk.daos.Hkdao"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	//boardupdatefomr.jsp에서 파라미터로 seq title, content를 전달받음
+	String sseq = request.getParameter("seq");
+	int seq = Integer.parseInt(sseq);
+	String title = request.getParameter("title");
+	String content = request.getParameter("content");
+	
+	Hkdao dao = new Hkdao();
+	boolean isS = dao.updateBoard(new HKDto(seq,title,content));
+	
+	if(isS){
+		%>
+		<script type = "text/javascript">
+			alert("글을 수정합니다.");
+			location.href = "boarddetail.jsp";
+			
+		</script>
+		<%
+	}else
+		%>
+		<script type = "text/javascript">
+			alert("글 수정 실패");
+			location.href=("boarddetail.jsp");
+		</script>
+	}
+	
+%>
+
+</body>
+</html>
