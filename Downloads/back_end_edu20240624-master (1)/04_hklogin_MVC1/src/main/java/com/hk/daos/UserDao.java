@@ -2,6 +2,7 @@ package com.hk.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.hk.database.DataBase;
@@ -57,4 +58,69 @@ public class UserDao extends DataBase {
 		return count>0?true:false;
 	}
 	
+	
+	//아이디 중복 체크하기
+	public String idCheck(String id) {
+		String resultId=null;
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT ID FROM USERINFO WHWERE ID =?";
+		
+		try {
+			conn=getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				resultId=rs.getString(1);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rs,psmt,conn);
+		}
+		
+		return resultId;
+		
+	}
+	
+	//로그인 기능 : 파라미터 ID, Password
+	public UserDto getLogin(String id, String password) {
+		UserDto dto= new UserDto();
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		String sql =  " SELECT ID, NAME, ROLE " + " FROM USERINFO " + " WHERE ID =? AND PASSWORD =? AND ENABLED = 'Y' ";
+	    try {
+			conn=getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, password);
+			
+			rs=psmt.executeQuery();
+			
+			while(rs.next()) {
+				dto.setId(rs.getString(1));
+				dto.setName(rs.getString(2));
+				dto.setRole(rs.getString(3));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rs,psmt,conn);
+		}
+			return dto;
+	    
+	
+	}
 }

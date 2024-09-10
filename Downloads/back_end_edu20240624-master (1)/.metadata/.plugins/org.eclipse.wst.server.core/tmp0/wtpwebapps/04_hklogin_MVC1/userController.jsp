@@ -2,6 +2,7 @@
 <%@page import="com.hk.dtos.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.net.URLEncoder"%>
 <%request.setCharacterEncoding("utf-8"); %>
 <%response.setContentType("text/html;charset=UTF-8"); %>
 <!DOCTYPE html>
@@ -41,6 +42,39 @@
 			</script>
 			<%
 		}
+	}else if(command.equals("idchk")){
+		String id = request.getParameter("id");
+		String resultId = dao.idCheck(id); //결과값이 null이면 사용가능
+		request.setAttribute("resultId", resultId);
+		pageContext.forward("idchkform.jsp"); //사용자에게 id가 사용가능한지 알려줄 페이지 (새로운 창)
+	}else if(command.equals("login")){
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		
+		//Dao 객체 메서드 실행 : getLogin(id, password)
+		UserDto ldto = dao.getLogin(id,password);
+		if(ldto==null||ldto.getId()==null){
+			response.sendRedirect("index.jsp?msg="+URLEncoder.encode("회원가입을 해주세요", "utf-8"));
+		}else{
+			//회원이라면
+			session.setAttribute("ldto",ldto);
+			session.setMaxInactiveInterval(10*60);//10분간 요청이 없으면 세션을 삭제
+			
+			//등급[ADMIN,MANAGER,USER]을 확인해서 해당 MAIN페이지로 이동하기
+			if(ldto.getRole().toUpperCase().equals("ADMIN")){
+				response.sendRedirect("admin_main.jsp");
+			}else if(ldto.getRole().toUpperCase().equals("MANAGER")){
+				response.sendRedirect("manager_main.jsp");
+			}else if(ldto.getRole().toUpperCase().equals("USER")){
+				response.sendRedirect("user_main.jsp");
+			}
+		}
+	}else if(command.equals("logout")){//로그아웃하기
+		//로그아웃은 session에서 로그인정보를 삭제한다는 의미
+// 		session.removeAttribute("ldto");//ldto라는 이름의 객체를 삭제
+		session.invalidate();//session안에 모든 정보를 삭제한다.
+		System.out.println("로그아웃함");
+		response.sendRedirect("index.jsp");
 	}
 %>
 </body>

@@ -1,0 +1,26 @@
+@charset "EUC-KR";
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
+#navbar{
+	background-color : darkblue;
+	height: 60px;
+}
+
+.navbar ul{
+	width:800px;
+	margin-left:100px;
+}
+
+.navbar li{
+	display:inline-block;
+	margin-top:15px;
+	font-size:20px;
+	color :white;
+	margin-left:15px;
+	
+	
+}

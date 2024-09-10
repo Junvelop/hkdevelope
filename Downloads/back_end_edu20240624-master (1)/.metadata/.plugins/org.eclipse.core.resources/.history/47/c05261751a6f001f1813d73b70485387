@@ -1,0 +1,11 @@
+@charset "EUC-KR";
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
+#navbar{
+	background-color : darkblue;
+	height: 60px;
+}

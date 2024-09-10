@@ -145,3 +145,16 @@
 0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:21:02 +0900] "GET /04_hklogin_MVC1/userController.jsp?command=registform HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:21:02 +0900] "GET /04_hklogin_MVC1/registform.jsp HTTP/1.1" 200 921
 0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:21:18 +0900] "POST /04_hklogin_MVC1/userController.jsp HTTP/1.1" 500 2594
+127.0.0.1 - - [09/Sep/2024:17:35:15 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:16 +0900] "GET /04_hklogin_MVC1/WEB-INF/classes/com/hk/daos/UserDao.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:18 +0900] "GET /04_hklogin_MVC1/WEB-INF/classes/com/hk/daos/UserDao.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:18 +0900] "GET /04_hklogin_MVC1/WEB-INF/classes/com/hk/daos/UserDao.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:18 +0900] "GET /04_hklogin_MVC1/WEB-INF/classes/com/hk/daos/UserDao.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:19 +0900] "GET /04_hklogin_MVC1/WEB-INF/classes/com/hk/daos/UserDao.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:19 +0900] "GET /04_hklogin_MVC1/WEB-INF/classes/com/hk/daos/UserDao.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:38 +0900] "GET /04_hklogin_MVC1/ HTTP/1.1" 200 658
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:38 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:39 +0900] "GET /04_hklogin_MVC1/userController.jsp?command=registform HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:39 +0900] "GET /04_hklogin_MVC1/registform.jsp HTTP/1.1" 200 921
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:47 +0900] "POST /04_hklogin_MVC1/userController.jsp HTTP/1.1" 200 275
+0:0:0:0:0:0:0:1 - - [09/Sep/2024:17:35:48 +0900] "GET /04_hklogin_MVC1/index.jsp HTTP/1.1" 200 658

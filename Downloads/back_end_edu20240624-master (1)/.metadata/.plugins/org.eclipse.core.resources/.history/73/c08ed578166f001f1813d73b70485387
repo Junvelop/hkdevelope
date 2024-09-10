@@ -1,0 +1,16 @@
+@charset "EUC-KR";
+
+*{
+	margin : 0px;
+	padding : 0px;
+}
+
+body{
+	
+	background-color : gainsboro;	
+}
+
+button{
+	border : 1px sloid cornflowerblue;
+	background-color:cyan;
+}
