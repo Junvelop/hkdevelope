@@ -4,37 +4,37 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.hk.database.DataBase;
 import com.hk.dtos.RoleStatus;
 import com.hk.dtos.UserDto;
 
-public class UserDao extends DataBase {
+public class UserDao extends DataBase{
 
-		//싱글톤 패턴 : 객체를 한번만 생성하자 --> 외부에 접근할 때 new를 사용 못하게해야해
-	
+	//싱글톤 패턴 : 객체를 한번만 생성하자
+	//외부에 접근할때 new를 사용 못하게 하자: new UserDao()
 	public static UserDao userDao;
-	private UserDao() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public static UserDao getUserDao() { //UserDao.getUserDao() 가능
+	private UserDao() {}
+	public static UserDao getUserDao() { // UserDao.getUserDao() 가능
 		if(userDao==null) {
-			userDao = new UserDao();
+			userDao=new UserDao();//내부에서 객체생성 한번 함			
 		}
-		
 		return userDao;
 	}
 	
 	//사용자 기능
 	
-	//1. 회우너가입기능 (enabled: 'y' // 초기사용여부 - 예  role: "user"// 유저 역할, regDate:SYSDATE())
+	//1. 회원가입 기능(enabled:'Y', role:'USER', regDate:SYSDATE() )
 	//insert문 실행
 	public boolean insertUser(UserDto dto) {
-		int count = 0;
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		String sql = " INSERT INTO USERINFO " + " VALUES(NULL,?,?,?,?,?,'Y',?,SYSDATE())";
+		int count=0;
+		Connection conn=null;
+		PreparedStatement psmt=null;
+		
+		String sql=" INSERT INTO USERINFO "
+				 + " VALUES(NULL,?,?,?,?,?,'Y',?,SYSDATE())";
 		
 		try {
 			conn=getConnection();
@@ -45,63 +45,58 @@ public class UserDao extends DataBase {
 			psmt.setString(4, dto.getAddress());
 			psmt.setString(5, dto.getEmail());
 			psmt.setString(6, String.valueOf(RoleStatus.USER));
-			count = psmt.executeUpdate()	;
-			
+			count=psmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		}finally {
 			close(null, psmt, conn);
 		}
-		
-		
 		return count>0?true:false;
 	}
-	
 	
 	//아이디 중복 체크하기
 	public String idCheck(String id) {
 		String resultId=null;
 		
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
+		Connection conn=null;
+		PreparedStatement psmt=null;
+		ResultSet rs=null;
 		
-		String sql = "SELECT ID FROM USERINFO WHWERE ID =?";
+		String sql="SELECT ID FROM USERINFO WHERE ID=?";
 		
 		try {
 			conn=getConnection();
-			psmt = conn.prepareStatement(sql);
+			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, id);
-			rs = psmt.executeQuery();
+			rs=psmt.executeQuery();
 			while(rs.next()) {
 				resultId=rs.getString(1);
-				
 			}
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			close(rs,psmt,conn);
+			close(rs, psmt, conn);
 		}
 		
 		return resultId;
-		
 	}
 	
-	//로그인 기능 : 파라미터 ID, Password
+	//로그인 기능: 파라미터 ID, Password
 	public UserDto getLogin(String id, String password) {
-		UserDto dto= new UserDto();
+		UserDto dto=new UserDto();
 		
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
+		Connection conn=null;
+		PreparedStatement psmt=null;
+		ResultSet rs=null;
 		
-		String sql =  " SELECT ID, NAME, ROLE " + " FROM USERINFO " + " WHERE ID =? AND PASSWORD =? AND ENABLED = 'Y' ";
-	    try {
+		String sql=" SELECT ID, NAME, ROLE "
+				 + " FROM USERINFO "
+				 + " WHERE ID=? AND PASSWORD=? AND ENABLED='Y' ";
+		
+		try {
 			conn=getConnection();
-			psmt = conn.prepareStatement(sql);
+			
+			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, password);
 			
@@ -111,16 +106,170 @@ public class UserDao extends DataBase {
 				dto.setId(rs.getString(1));
 				dto.setName(rs.getString(2));
 				dto.setRole(rs.getString(3));
-				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			close(rs,psmt,conn);
+			close(rs, psmt, conn);
 		}
-			return dto;
-	    
-	
+		return dto;
 	}
+	
+	//나의 정보 조회
+	public UserDto getUser(String id) {
+		UserDto dto=new UserDto();
+		
+		Connection conn=null;
+		PreparedStatement psmt=null;
+		ResultSet rs=null;
+		
+		String sql=" SELECT SEQ, ID, NAME, ADDRESS, EMAIL, ROLE, REGDATE "
+				 + " FROM USERINFO "
+				 + " WHERE ID=? ";
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs=psmt.executeQuery();
+			while(rs.next()) {
+				dto.setSeq(rs.getInt(1));
+				dto.setId(rs.getString(2));
+				dto.setName(rs.getString(3));
+				dto.setAddress(rs.getString(4));
+				dto.setEmail(rs.getString(5));
+				dto.setRole(rs.getString(6));
+				dto.setRegDate(rs.getDate(7));
+			}
+			System.out.println(dto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs, psmt, conn);
+		}
+		return dto;
+	}
+	
+	//나의 정보 수정하기: 파라미터 - id , address, email
+	public boolean updateUser(UserDto dto) {
+		int count=0;
+		Connection conn=null;
+		PreparedStatement psmt=null;
+		
+		String sql=" UPDATE USERINFO SET ADDRESS = ?, EMAIL = ? "
+				 + " WHERE ID = ? ";
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, dto.getAddress());
+			psmt.setString(2, dto.getEmail());
+			psmt.setString(3, dto.getId());
+			count=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(null, psmt, conn);
+		}
+		return count>0?true:false;
+	}
+	
+	//회원 탈퇴 : enabled - 'N' 업데이트 , 파라미터: id
+	public boolean delUser(String id) {
+		int count=0;
+		Connection conn=null;
+		PreparedStatement psmt=null;
+		
+		String sql=" UPDATE USERINFO SET ENABLED = 'N' WHERE ID=? ";
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			count=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(null, psmt, conn);
+		}
+		return count>0?true:false;
+	}
+	
+	public List<UserDto> getUserInfoList() {
+	    List<UserDto> userList = new ArrayList<>(); // UserDto 객체를 담을 리스트 생성
+
+	    Connection conn = null;
+	    PreparedStatement psmt = null;
+	    ResultSet rs = null;
+
+	    String sql = "SELECT SEQ, ID, NAME, ADDRESS, EMAIL, ROLE, REGDATE FROM USERINFO";
+
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(sql);
+	        rs = psmt.executeQuery();
+
+	        while (rs.next()) {
+	            UserDto dto = new UserDto();  // 새로운 UserDto 객체 생성
+	            dto.setSeq(rs.getInt(1));
+	            dto.setId(rs.getString(2));
+	            dto.setName(rs.getString(3));
+	            dto.setAddress(rs.getString(4));
+	            dto.setEmail(rs.getString(5));
+	            dto.setRole(rs.getString(6));
+	            dto.setRegDate(rs.getDate(7));
+
+	            userList.add(dto); // 리스트에 UserDto 객체 추가
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(rs, psmt, conn);
+	    }
+
+	    return userList; // 전체 회원 리스트 반환
+	    
+	    
+
+	    
+	    
+	}
+	
+	public boolean userUpdateRole(String id, String role) {
+		int count=0;
+		Connection conn=null;
+		PreparedStatement psmt=null;
+
+		String sql=" UPDATE userinfo "
+				 + " SET role=? "
+				 + " WHERE id=? ";
+
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, role);
+			psmt.setString(2, id);
+			count=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(null, psmt, conn);
+		}
+
+		return count>0?true:false;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

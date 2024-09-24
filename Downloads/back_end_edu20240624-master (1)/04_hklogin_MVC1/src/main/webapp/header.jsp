@@ -5,8 +5,8 @@
 	response.setDateHeader("Expires", 0L);
 %>
 <%@page import="com.hk.dtos.UserDto"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8"); %>
 <%response.setContentType("text/html;charset=UTF-8"); %>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/layout.css">
 </head>
 <%
-	//ÇöÀç path È®ÀÎÇØº¸±â
+	//í˜„ìž¬ path í™•ì¸í•´ë³´ê¸°
 	System.out.println(request.getRequestURI());
 	System.out.println(request.getRequestURI().substring(
 				request.getContextPath().length()
@@ -31,14 +31,14 @@
 	if(!requestPath.equals("/registform.jsp")){
 		ldto=(UserDto)session.getAttribute("ldto");
 	
-		//·Î±×ÀÎ Á¤º¸°¡ ¾ø´Â °æ¿ì(·Î±×¾Æ¿ôÇÑ °æ¿ì) È­¸éÃ³¸® 
+		//ë¡œê·¸ì¸ ì •ë³´ê°€ ì—†ëŠ” ê²½ìš°(ë¡œê·¸ì•„ì›ƒí•œ ê²½ìš°) í™”ë©´ì²˜ë¦¬ 
 		if(ldto==null){
 			pageContext.forward("index.jsp");
 		}		
 	}
-// 	hkcontroller.jsp/admin/*    --> ·Î±×ÀÎÁ¤º¸È®ÀÎÇØ¼­ º¼¼ö ÀÖ´Â ÆäÀÌÁö
-// 	hkcontroller.jsp/user/login --> ·Î±×ÀÎÁ¤º¸È®ÀÎÇØ¼­ º¼¼ö ÀÖ´Â ÆäÀÌÁö
-// 	hkcontroller.jsp/user/regist--> ·Î±×ÀÎÁ¤º¸È®ÀÎX
+// 	hkcontroller.jsp/admin/*    --> ë¡œê·¸ì¸ì •ë³´í™•ì¸í•´ì„œ ë³¼ìˆ˜ ìžˆëŠ” íŽ˜ì´ì§€
+// 	hkcontroller.jsp/user/login --> ë¡œê·¸ì¸ì •ë³´í™•ì¸í•´ì„œ ë³¼ìˆ˜ ìžˆëŠ” íŽ˜ì´ì§€
+// 	hkcontroller.jsp/user/regist--> ë¡œê·¸ì¸ì •ë³´í™•ì¸X
 %>
 <body>
 <nav class="navbar">

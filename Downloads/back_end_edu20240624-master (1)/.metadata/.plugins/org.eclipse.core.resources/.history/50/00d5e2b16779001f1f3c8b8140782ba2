@@ -1,0 +1,56 @@
+/**
+ * 
+ */
+package com.hk.hello;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * 
+ */
+public class HelloServletOld extends HttpServlet {
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		System.out.println("이닛() : 서블릿 객체가 생성되면 최초에 한번 실행되는 메서드");
+	}
+	
+	//서비스()를 구현함 
+	//클라이언트에서 요청하는 방식에 따라서 처리하는 메서드 
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("겟방식 요청");
+		doPost(req, resp);
+	}
+	
+	public void test(HttpServletRequest req) {
+		req.getParameter("id");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doPost(req, resp);
+		req.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html;charset=utf-8");
+		
+		//파라미터를 받는다
+		String param = req.getParameter("param");
+		PrintWriter out = resp.getWriter();
+		
+		//자바에서 hrml로 응답하기
+		PrintWriter out = resp.getWriter();
+		out.print("<h1>서블릿개념<h1>");
+		out.print("<h2>서블릿기본내용알아보기</h2>");
+		//out.print("<h2>서블릿에서)
+	}
+
+}

@@ -1,6 +1,8 @@
 INDEX VERSION 1.134
 C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3500187500.index
 \02_hkboard_seba\src\main\java
+C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\611167201.index
+\06_helloServlet\src\main\java
 C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3440242953.index
 \01_userboard_sepa\src\main\java
 C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3997494640.index

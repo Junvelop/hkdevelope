@@ -6,14 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="getAll"/>
+		<item key="selection" value="dao"/>
 		<list key="findhistory">
-			<item value="getAll"/>
-			<item value="isCheckCount"/>
-			<item value="getElementsByname"/>
-			<item value="chkAllOjb"/>
-			<item value="propArray"/>
-			<item value="&lt;ul&gt;"/>
+			<item value="dao"/>
+			<item value="deluser"/>
+			<item value="getUserList"/>
+			<item value="oggedInUsers"/>
+			<item value="application.setAttribute(&quot;loggedInUsers&quot;, loggedInUser"/>
+			<item value="session"/>
+			<item value="sess"/>
+			<item value="ss"/>
+			<item value="ssei"/>
+			<item value="ldto"/>
+			<item value="admin"/>
+			<item value="login"/>
+			<item value="getAllUserList"/>
+			<item value="사용가능한"/>
+			<item value="확인"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&lt;ol&gt;"/>

@@ -1,6 +1,6 @@
 <%@include file="header.jsp" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
  <%@page import="com.hk.dtos.UserDto"%>
 <!DOCTYPE html>
@@ -13,8 +13,9 @@
 <div id = "container">
 	<div class = "main">
 		<div class = "lead">
-			<span><%=ldto.getId() %>[<%=ldto.getRole() %>]╢тюл ╥н╠вюнго©╢╫ю╢о╢ы.</span>
-			<span><a href ="">Ё╙юга╓╨╦</a></span>
+			
+			<span><%=ldto.getId() %>[<%=ldto.getRole() %>]К▀≤Л²╢ К║°Й╥╦Л²╦М∙≤Л≤─Л┼╣К▀┬К▀╓.</span>
+			<span><a href ="userController.jsp?command=userinfo">К┌≤Л²≤Л═∙КЁ╢</a></span>
 			<span><a href = "userController.jsp?command=logout"></a></span>
 		</div>
 	</div>

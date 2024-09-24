@@ -17,8 +17,10 @@
 		
 		var parentInputId=opener.document.getElementsByName("id")[0]; // id 입력 박스 객체 
 		if(resultId=='null'){
+			localStorage.setItem("idchk","y");
 			opener.document.getElementsByName("name")[0].focus();
 		}else{
+			localStorage.setItem("idchk","n");
 			parentInputId.focus();
 		}
 		self.close(); //현재창을 닫는다

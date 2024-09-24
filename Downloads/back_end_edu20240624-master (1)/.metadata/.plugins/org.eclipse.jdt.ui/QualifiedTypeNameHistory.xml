@@ -18,4 +18,8 @@
     <fullyQualifiedTypeName name="com.hk.board.dtos.UserDto"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="com.hk.dtos.RoleStatus"/>
+    <fullyQualifiedTypeName name="com.hk.dtos.UserDto"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 </qualifiedTypeNameHistroy>

@@ -133,6 +133,13 @@ public class UserDto implements Serializable{
 		this.address = address;
 		this.email = email;
 	}
+
+	public UserDto(String id, String address, String email) {
+		super();
+		this.id = id;
+		this.address = address;
+		this.email = email;
+	}
 	
 	
 	
