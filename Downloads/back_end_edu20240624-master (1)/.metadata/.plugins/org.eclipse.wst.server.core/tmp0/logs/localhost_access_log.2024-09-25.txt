@@ -1,0 +1,7 @@
+127.0.0.1 - - [25/Sep/2024:16:34:52 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [25/Sep/2024:16:34:54 +0900] "GET /09_answerboard_MVC2_JSTL_myBatis/ HTTP/1.1" 200 161
+0:0:0:0:0:0:0:1 - - [25/Sep/2024:16:34:54 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [25/Sep/2024:16:34:56 +0900] "GET /09_answerboard_MVC2_JSTL_myBatis/boardlist.board HTTP/1.1" 200 144
+127.0.0.1 - - [25/Sep/2024:16:37:36 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [25/Sep/2024:16:37:36 +0900] "GET /09_answerboard_MVC2_JSTL_myBatis/ HTTP/1.1" 200 161
+0:0:0:0:0:0:0:1 - - [25/Sep/2024:16:37:37 +0900] "GET /09_answerboard_MVC2_JSTL_myBatis/boardlist.board HTTP/1.1" 200 144

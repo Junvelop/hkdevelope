@@ -162,7 +162,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\06_helloServlet" path="/06_helloServlet" reloadable="true" source="org.eclipse.jst.jee.server:06_helloServlet"/></Host>
+      <Context docBase="C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\06_helloServlet" path="/06_helloServlet" reloadable="true" source="org.eclipse.jst.jee.server:06_helloServlet"/><Context docBase="C:\Users\hkedu\Downloads\back_end_edu20240624-master (1)\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\09_answerboard_MVC2_JSTL_myBatis" path="/09_answerboard_MVC2_JSTL_myBatis" reloadable="true" source="org.eclipse.jst.jee.server:09_answerboard_MVC2_JSTL_myBatis"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.ans">
+
+	<select id="boardlist" resultType="AnswerDto">
+		SELECT SEQ, ID, TITLE, CONTENT, REGDATE
+		       REFER, STEP, DEPTH,READCOUNT,DELFLAG
+	    FROM ANSWERBOARD
+	    ORDER BY REFER DESC, STEP 
+	</select>
+	
+	
+</mapper>
